@@ -1,0 +1,95 @@
+@font-face{
+  font-family:'Cuprum';
+  src: url('fonts/Cuprum.otf');
+}
+
+body{
+  background:transparent image-url('lnbg.png') repeat;
+  background-repeat-x: no-repeat;
+  background-repeat-y: no-repeat;
+  background-attachment: initial;
+  background-position-x: 50%;
+  background-position-y: 0%;
+  background-origin: initial;
+  background-clip: initial;
+  background-color: initial;
+  //  font-family:'Cuprum';
+}
+h2, h3, h4{
+   font-family:'Cuprum';
+}
+
+h1{
+  font-family:'Cuprum';
+  font-size:20px;
+}
+
+a{
+  color:#0073BD;
+  /*font-family:'Cuprum';*/
+}
+.gray{
+  color: #616161;
+}
+#taxonomies{
+a{
+  color:#D80807;
+}
+}
+.big_link{
+font-size: 34px;
+}
+.amount{
+font-style: bold;
+font-size: 14px;
+}
+.to_center{
+text-align: center;
+}
+.to_right{
+text-align: right;
+}
+.cart_block{
+border-left: 1px solid #bfc0c7;
+padding: 5px 5px 5px 15px;
+margin-left: 15px;
+
+}
+
+
+.btn-yellow {
+-moz-box-shadow:inset 0px 1px 0px 0px #fceaca;
+-webkit-box-shadow:inset 0px 1px 0px 0px #fceaca;
+box-shadow:inset 0px 1px 0px 0px #fceaca;
+background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #f1e867), color-stop(1, #eeaf41) );
+background:-moz-linear-gradient( center top, #f1e867 5%, #eeaf41 100% );
+filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#f1e867', endColorstr='#eeaf41');
+background-color:#f1e867;
+-moz-border-radius:6px;
+-webkit-border-radius:6px;
+border-radius:6px;
+border:1px solid #eeb44f;
+display:inline-block;
+color:#0d0c0d;
+font-family:arial;
+font-size:15px;
+font-weight:bold;
+padding:13px 24px;
+text-decoration:none;
+text-shadow:1px 1px 0px #ce8e28;
+}.btn-yellow:hover {
+background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #eeaf41), color-stop(1, #f1e867) );
+background:-moz-linear-gradient( center top, #eeaf41 5%, #f1e867 100% );
+filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#eeaf41', endColorstr='#f1e867');
+background-color:#eeaf41;
+}.btn-yellow:active {
+position:relative;
+top:1px;
+}
+.price{
+  font-size:28px;
+}
+.add-to-cart .title{
+  font-size:25px;
+  height: 35px;
+}

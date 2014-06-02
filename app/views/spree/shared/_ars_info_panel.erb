@@ -1,0 +1,8 @@
+<script type="text/javascript">
+	$('#info_panel').animate({opacity: 0.0}, 3000, function() {$('#info_panel').html('');});
+</script>
+<div class="alert alert-success">
+	<a class="close" data-dismiss="alert" href="#">×</a>
+	<h4><%= @params[:title] %></h4>
+	<p><%= @params[:text] %></p>
+</div>

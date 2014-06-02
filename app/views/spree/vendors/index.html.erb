@@ -1,0 +1,24 @@
+<% content_for :sidebar do %>
+<div data-hook="taxon_sidebar_navigation">
+    <%= render :partial => 'spree/shared/taxonomies' %>
+</div>
+<% end %>
+
+<h1>Производители</h1>
+<% @vendors.children.each do |vendor| %>
+	
+<div class="span">
+<div class="span2">
+	<div class="vendor">
+		<a href="<%= seo_url vendor %>">
+			<img src="<%= vendor.icon(:normal) %>" alt="<%= vendor.name %>">
+		</a>
+	</div>	
+</div>
+<h4> <a href="<%= seo_url vendor%>"><%= vendor.name %></a></h4>
+<%=vendor.description[0,300]%>.....
+<br>
+<br>
+<hr>
+</div>
+<% end %>

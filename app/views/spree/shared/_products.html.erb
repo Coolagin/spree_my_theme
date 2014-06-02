@@ -1,0 +1,64 @@
+<%
+paginated_products = @searcher.retrieve_products if params.key?(:keywords)
+paginated_products ||= products
+%>
+<% if @taxon && @taxon.children.empty? %>
+<div class="well">
+	<div class="">
+		<div class="span6">
+			<%= sort_botton(name: "Наименование", sku: "Артикул") %>
+		</div>
+		
+		<div class="span2">
+		<%= per_page_filter("10","20","50") %>
+		<small class='help_text'> Товара на странице</small>
+		</div>
+	</div>
+	<br>
+	<br>
+	<%# render partial: 'spree/shared/filters' %>
+</div>
+<% end %>
+<% if products.empty? %>
+<%= t(:no_products_found) %>
+<% elsif params.key?(:keywords) %>
+<h6 class="search-results-title"><%= t(:search_results, :keywords => h(params[:keywords])) %></h6>
+<% end %>
+
+<% if products.any? %>
+
+<table class="table table-condensed">
+	<tbody>
+	<% products.each do |product| %>
+		<% if Spree::Config[:show_zero_stock_products] || product.has_stock? %>
+			<tr>
+				<td><%= link_to small_image(product, :itemprop => "name"), product %></td>
+				<td>
+				<p> 
+					<%= link_product_full_name(product) %>
+				</p>
+				</td>
+				<td><%= number_to_currency product.price %></td>
+				<td>
+				<%= form_for :order, url: populate_orders_url , remote: true do |f| -%>
+					<%= hidden_field_tag "variants[#{product.id}]",1  %>
+		
+				  <%= submit_tag "в корзину", :id => "submit", :name => "submit", class:'btn btn-warning btn-mini', :disable_with => "Подождите..." %>
+				<% end -%>
+				</td>
+			</tr>
+		<% end %>
+	<% end %>
+	</tbody>
+</table>
+
+<% end %>
+
+<% if paginated_products.respond_to?(:num_pages)
+	params.delete(:search)
+	params.delete(:taxon)
+	%>
+
+	<%= paginate paginated_products %>
+
+<% end %>

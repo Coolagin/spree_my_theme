@@ -1,0 +1,66 @@
+<% content_for :sidebar do %>
+<div data-hook="taxon_sidebar_navigation">
+	<%= render :partial => 'spree/shared/taxonomies' %>
+	<%= (render :partial => 'spree/shared/filters' if @taxon.children.empty?)  if @taxon%>
+</div>
+<% end %>
+<div class='product-show' data-hook="product_show" itemscope itemtype="http://schema.org/Product">
+	<% @body_id = 'product-details' %>
+
+	<div class="row">
+			
+		<div class="span9"><h1 class="product-title" itemprop="name"><%= product_full_name(@product) %></h1></div>
+		<div id="product-images"  class="span4" data-hook="product_images">
+
+			<div class="well to_center" id="main-image" data-hook>
+				<%= render :partial => 'image' %>
+			</div>
+			<div id="thumbnails" data-hook>
+				<%= render :partial => 'thumbnails', :locals => { :product => @product } %>
+			</div>
+		</div>
+		<div  class="span5" data-hook="product_properties">
+			<%= render :partial => 'properties' %>
+
+			<br>
+			<hr>
+			<div class='row' id="cart-form" data-hook="cart_form">
+				<%= render :partial => 'cart_form' %>
+			</div>
+		</div>
+
+	</div>
+
+	<div span='span7'>
+
+
+		<div id="product-description" data-hook="product_description">
+
+			<div itemprop="description">
+				<%= product_description(@product) rescue t(:product_has_no_description) %>
+			</div>
+			<br>
+			<hr>
+			<div>
+				<div class="vendor">
+					<a href="<%= seo_url get_vendor(@product) %>">
+						<%= image_tag get_vendor(@product).icon(:normal) %>
+					</a>
+				</div>
+				<br>
+				<p>
+					<strong><%=get_vendor(@product).name%></strong>
+					-
+					<%= get_vendor(@product).description %>
+				</p>
+			</div>
+
+			<div class="related-products pull-right">
+				<%= render :partial => 'taxons' %>
+			</div>
+
+
+		</div>
+	</div>
+
+</div>

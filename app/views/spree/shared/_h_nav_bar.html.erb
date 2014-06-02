@@ -1,0 +1,18 @@
+<div class="navbar">
+	<div class="navbar-inner">
+		<div class="container">
+			<ul class="nav">
+
+				<% [].each do |taxonomy| #get_taxonomies%>
+				<li class="dropdown">
+					<a href="#" class="dropdown-toggle" data-toggle="dropdown"><%= t(:shop_by_taxonomy, :taxonomy => taxonomy.name.singularize) %> <b class="caret"></b></a>
+					<%= my_taxons_tree(taxonomy.root, @taxon, Spree::Config[:max_level_in_taxons_menu] || 1) %>
+					
+				</li>
+				<% end %>
+				
+			</ul>
+			
+		</div>
+	</div>
+</div>

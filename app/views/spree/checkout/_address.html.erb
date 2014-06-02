@@ -1,0 +1,68 @@
+
+
+	<fieldset id="billing" data-hook>
+		<%= form.fields_for :bill_address do |bill_form| %>
+		<legend><%= t(:ship_address) %></legend>
+
+
+		<div class="control-group">
+			<%= bill_form.label :firstname, t(:first_name), :class => "control-label" %>
+			<div class="controls">
+				<%= bill_form.text_field :firstname, :class => 'required span4' %>
+				<span class="help-inline">*</span>
+			</div>
+		</div>
+
+		<div class="control-group">
+			<%= bill_form.label :lastname, t(:last_name), :class => "control-label"  %>
+			<div class="controls">
+				<%= bill_form.text_field :firstname, :class => 'required span4' %>
+				<span class="help-inline">*</span>
+			</div>
+		</div>
+				
+		<div class="control-group">
+			<%= bill_form.label :phone, t(:phone) , :class => "control-label"%>
+			<div class="controls">
+				<%= bill_form.text_field :phone, :class => 'required' %>
+				<span class="help-inline">*</span>
+			</div>
+		</div>
+
+		<div class="control-group">
+			<%= bill_form.label :city, t(:city), :class => "control-label" %>
+			<div class="controls">
+				<%= bill_form.text_field :city, :class => 'required' %>
+				<span class="help-inline">*</span>
+			</div>
+		</div>
+		
+		<div class="control-group">
+			<%= bill_form.label :address1, t(:street_address), :class => "control-label" %>
+			<div class="controls">
+				<%= bill_form.text_area :address1, :class => 'required span5' ,rows:5%>
+				<span class="help-inline">*</span>
+			</div>
+		</div>
+		
+
+		<div class="control-group">
+			<%= bill_form.label :zipcode, t(:zip), :class => "control-label" %>
+			<div class="controls">
+				<%= bill_form.text_field :zipcode%>
+			</div>
+		</div>
+
+				
+			</fieldset>
+
+			<%= bill_form.hidden_field :zipcode, value:'vvv' %>
+			<%= bill_form.hidden_field :lastname, value:'vvv' %>
+			<%= bill_form.hidden_field :country_id, value:168 %>
+			<%= form.hidden_field :use_billing, value: 'true' %>
+
+		<hr class="clear" />
+		<div class="form-buttons" data-hook="buttons">
+			<%= submit_tag t(:save_and_continue), :class => 'btn btn-success' %>
+		</div>
+<% end %>

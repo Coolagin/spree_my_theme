@@ -1,0 +1,83 @@
+<!doctype html>
+
+<!--[if lt IE 7 ]> <html class="ie ie6" lang="en"> <![endif]-->
+<!--[if IE 7 ]>    <html class="ie ie7" lang="en"> <![endif]-->
+<!--[if IE 8 ]>    <html class="ie ie8" lang="en"> <![endif]-->
+<!--[if IE 9 ]>    <html class="ie ie9" lang="en"> <![endif]-->
+<!--[if gt IE 9]><!--><html lang="en"><!--<![endif]-->
+
+
+<head data-hook="inside_head">
+	<%= render :partial => 'spree/shared/head' %>
+</head>
+
+<body class="<%= body_class %>" id="<%= @body_id || 'default' %>" data-hook="body">
+	<%= render partial: 'spree/shared/online_consult' %>
+	<div id="head-line"></div>
+	<div id="info_panel" class='span4'>
+		
+	</div>
+	<div class="container">
+		<div class="row">
+			<%= render partial: "spree/shared/nav_bar"%>	
+		</div>	
+		<br>	
+		<div class="row">
+			<div class='span3'>
+				<h1><%= image_tag('phone.png')%>&nbsp;<span class='gray'>8 (495)</span> 74-33-777</h1>
+				<h1><%= image_tag('icq_ico.png')%>&nbsp;&nbsp;<span class='gray'></span>637048900</h1>
+			</div>
+			<%= render :partial => 'spree/shared/search' %>
+		</div>
+		<br>
+		<%= render :partial => "spree/shared/h_marketing_bar" %>
+		
+	</div>
+
+	<div class="container">
+
+
+		<div id="wrapper" class="row" data-hook>
+			<div class="span3">
+				<% if content_for?(:sidebar) %>
+				<aside id="sidebar" class="columns alpha four" data-hook>
+					<%= yield :sidebar %>
+				</aside>
+				<% end %>
+			</div>
+			<div class="span9">
+
+				<div class="twelve columns" data-hook>
+					<%= breadcrumbs(@taxon,"&nbsp;&nbsp;/&nbsp;&nbsp;") %>
+					<%= flash_messages %>
+					<%= yield %>
+				</div>
+			</div>
+			
+		</div>
+
+	</div>
+
+	<div class="container">
+		<div class="row">
+			<hr>
+			<div class="span13">
+
+				<div id="footer-left" class="span5" data-hook>
+					<div class='txt'>&copy;ООО &laquo;Термоарт&raquo; 2011&#151;2012. Все права защищены. Указанная стоимость товаров и условия их приобретения действительны по состоянию на текущую дату</div>
+				</div>
+				<br>
+				<br>
+				<br>
+				<br>
+			</div>
+			<div class="span3 offset3">
+				<%= render :partial => 'spree/static/yandex_metrika' %>
+				<%= render :partial => 'spree/static/google' %>
+			</div>
+		</div>
+	</div>
+
+</body>
+
+</html>

@@ -1,0 +1,32 @@
+<div class="span4"><%=link_to image_tag('logo.png'), root_url%></div>
+	
+<div class="span8 h-menu">
+	<ul>
+		<li><a href="/t/katieghorii">КАТАЛОГ
+			<span class="sub-text-menu">наш товар</span></a>
+		</li>
+		<li><a href='<%= about_us_path %>'>О НАС
+			<span class="sub-text-menu">информация о нас</span></a>
+		</li>
+		<li><a href='<%= otzyvy_path %>'>ОТЗЫВЫ
+			<span class="sub-text-menu">отзывы наших клиентов</span></a>
+		</li>
+		<li><a href='<%= certificates_path %>'>СЕРТИФИКАТЫ
+			<span class="sub-text-menu">наши гарантии качества</span></a>
+		</li>
+		<li><a href='<%= contacts_path %>'>КОНТАКТЫ
+			<span class="sub-text-menu">как нас можно найти</span></a>
+		</li>
+		<li>
+			<% if store_menu? %>
+			<div class='pull-right'>
+					<div class="cart_block">
+					<div class="to_center">
+						<%= render :partial => 'spree/shared/store_menu' %>
+					</div>
+				</div>
+			</div>
+			<% end %>
+		</li>
+	</ul>
+</div>

@@ -1,0 +1,16 @@
+<% vendors=Spree::Taxon.get_vendors %>
+<% unless vendors.nil? %>
+<hr>
+<h3><%= link_to("Производители", "/vendors") %></h3>
+<br>
+
+    <% vendors.children.limit(5).map do |vendor| %>
+        <div class="vendor_pic">
+          <a href="<%= seo_url(vendor) %>">
+            <img src="<%= vendor.icon(:normal) %>" alt="<%= vendor.name %>">
+          </a></div>
+    <% end %>
+    <br>
+<p class="push-right"><%= link_to "Все (#{vendors.children.count})", "/vendors", :class=>"link_no_decor" %></p>
+<br><br>
+<% end %>

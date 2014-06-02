@@ -1,0 +1,24 @@
+<% content_for :head do %>
+  <%= javascript_include_tag states_url(:format => :js) %>
+<% end %>
+<div  class="" id="checkout" data-hook>  
+  <%= render :partial => 'spree/shared/error_messages', :locals => { :target => @order } %>
+  <%= content_for :sidebar do%>
+  <div class="">
+    <h3 class="columns three alpha"><%= t(:checkout) %></h3>
+    <div class="columns thirteen omega"><%= checkout_progress %></div>
+  </div>
+  
+<%end %>
+
+  <div class="row">
+    <div class="">
+      <%= form_for @order, :url => update_checkout_path(@order.state), :html => { :class => "form-horizontal",:id => "checkout_form_#{@order.state}" } do |form| %>
+        <%= render @order.state, :form => form %>
+        <%= submit_tag nil, :id => 'post-final', :style => 'display:none;' %>
+      <% end %>
+    </div>
+
+  </div>
+
+</div>

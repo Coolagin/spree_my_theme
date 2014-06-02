@@ -1,0 +1,38 @@
+
+<%content_for :head_baner do %>
+<%#render partial: "spree/shared/head_baner"%>
+<%end%>
+
+<div class="span10 marketing">
+
+	<div id="wrapper" data-hook>
+		<div data-hook>
+				<%= taxon_block(@taxonomy.root,@taxon) unless @taxonomy.nil? & @taxon.nil? %>
+		</div>
+	</div>
+
+</div>
+	<div class='span2'>
+				<% vendors=Spree::Taxon.get_vendors %>
+		<% unless vendors.nil? %>
+		<hr>
+		<h3><%= link_to("Производители", "/vendors") %></h3>
+		<br>
+
+		    <% vendors.children.limit(15).map do |vendor| %>
+		        <div class="vendor_pic to-center">
+		          <a href="<%= seo_url(vendor) %>">
+		            <img src="<%= vendor.icon(:normal) %>" alt="<%= vendor.name %>">
+		          </a></div>
+		    <% end %>
+		    <br>
+		<p class="push-right"><%= link_to "Все (#{vendors.children.count})", "/vendors", :class=>"link_no_decor" %></p>
+		<br><br>
+		<% end %>
+	</div>
+<% content_for :sidebar do %>
+<div data-hook="homepage_sidebar_navigation">
+	<%= render :partial => 'spree/shared/taxonomies' %>
+</div>
+<% end %>
+

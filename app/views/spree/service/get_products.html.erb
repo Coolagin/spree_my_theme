@@ -1,0 +1,15 @@
+<h1>For Artuan De Monte Chudinovsky</h1>
+<table border="1">
+  <tr>
+    <th>Name</th>
+    <th>Link</th>
+  </tr>
+
+  	<%- @products.each do |product| %>
+  	  <tr>
+    <td><%= product.name %></td>
+    <td><%= "http://#{request.host}#{product_path(product)}" %></td>
+      </tr>
+    <% end %>
+
+</table>

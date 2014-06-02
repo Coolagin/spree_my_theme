@@ -1,0 +1,206 @@
+/*
+*= require bootstrap_and_overrides
+*/
+
+@import "my_style";
+@import "product_show";
+.help_text{
+	font-size:10px;
+}
+.my_well{
+	background-color: #f5f5f5;
+	padding:10px;
+	border-radius: 4px;
+}
+.my_breadcrumb{
+	list-style-type: none;
+	margin:5px 5px 5px 0px;
+	padding:5px 5px 5px 0px;
+}
+
+.my_breadcrumb li{
+	display: inline-block;
+}
+
+.my_breadcrumb a{
+	font-size:16px;
+	color:#D80807;
+	text-decoration:underline;
+}
+.my_breadcrumb .active a{
+	font-size:16px;
+	color:#2f2d2f;
+	text-decoration:none;
+}
+
+body{
+	padding-top: 0px;
+}
+#head-line{
+	margin-bottom: 10px;
+	height: 5px;
+	background-color: #181819;
+}
+.product_item{
+	//	height:220px;
+	//	width:180px;
+	height:200px;
+	width:180px;
+	display: inline-block;
+	text-align:center;
+	border:1px solid #9F9F9F;
+	padding:10px 10px 0px 10px;
+	margin:10px;
+	float:left;
+	overflow: hidden;
+	position: relative;
+}
+
+.product_price{
+	position: absolute;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	padding: 10px 15px;
+	background: #333;
+	background: rgba(0, 0, 0, 0.75);
+	h3{
+		color:#F5F5F5;
+	}
+}
+#products{ 
+	list-style-type: none;
+}
+.product_item_table{
+	height:200px;
+	width:170px;
+	display: inline-block;
+	text-align:center;
+	border:1px solid #888;
+	padding:10px;
+	margin:10px;
+}
+.h-menu{}
+.h-menu a{
+	font-family: 'Cuprum';
+	font-size:24px;
+	color:#000;
+}
+.h-menu a:hover{
+	color:#0788C3;
+	border:none;
+}
+.link-menu a{
+	font-family: 'Cuprum';
+	font-size:30px;
+	color:#000;
+}
+.link-menu a:hover{
+	color:#0788C3;
+	border:none;
+}
+.h-menu ul{
+	float:right;
+	list-style:none;
+}
+.h-menu li{
+	float:left;
+	margin:5px;
+	padding-left:10px;
+}
+.sub-text-menu{
+	display:block;
+	height:20px;
+	font-size:11px;
+}
+#footer{
+	background-color:#181819;
+	padding-top: 20px;
+	color:#fff;
+}
+.sub-footer{
+	background-color:#e1e3e8;
+	padding-bottom: 40px;
+	padding-top:40px;
+	margin-top: 40px;
+}
+
+.form-search{
+	margin-top:15px;
+}
+
+
+
+hr.soften {
+	height: 1px;
+	margin: 54px 0;
+	background-image: -webkit-linear-gradient(left, transparent, rgba(0, 0, 0, .1), transparent);
+	background-image: -moz-linear-gradient(left, transparent, rgba(0, 0, 0, .1), transparent);
+	background-image: -ms-linear-gradient(left, transparent, rgba(0, 0, 0, .1), transparent);
+	background-image: -o-linear-gradient(left, transparent, rgba(0, 0, 0, .1), transparent);
+	border: 0;
+}
+hr.soften.mini_margin{margin:20px 0;}
+.marketing h1 {
+	margin: 36px 0 27px;
+	font-size: 40px;
+	font-weight: 300;
+	text-align: center;}
+	.marketing-byline {
+		margin: -18px 0 27px;
+		font-size: 18px;
+		font-weight: 300;
+		line-height: 24px;
+		color: #999;
+		text-align: center;
+	}
+	.marketing h2 {
+		font-size: 22px;
+	}
+	.marketing h2, .marketing h3 {
+		font-weight: 300;
+	}
+
+	.marketing .bs-icon {
+		float: left;
+		margin: 7px 10px 0 0;
+		opacity: .8;
+	}
+
+/*категории на главной странице*/
+.block_tax-list .span4{
+    display: block;
+    padding: 5px;
+    margin: 15px 5px 20px 5px;
+}
+.block_tax-list a{
+    font-weight: bold;
+    font-size: 14px;
+    margin: 3px;
+    text-decoration: none;
+}
+.block_tax-list a:hover{text-decoration: underline}
+.to_center{text-align: center}
+.sub_block_tax{list-style: none}
+.sub_block_tax a{font-weight: normal;text-decoration: underline;font-size: 12px;}
+
+// список категори и производителей
+.taxons-list{
+	list-style:none;
+	li .current{
+		font-weight: bold;
+	}
+}
+.to-center{
+	text-align:center;
+}
+#info_panel{
+	right:20px;
+	position:fixed;
+}
+#sidebar{
+	margin-right: 5px;
+}
+.vendor_pic{
+	margin: 10px;
+}

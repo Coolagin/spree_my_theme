@@ -1,0 +1,57 @@
+<%= form_for :order, :url => populate_orders_url, remote: true do |f| %>
+<div data-hook="inside_product_cart_form" itemprop="offers" itemscope itemtype="http://schema.org/Offer">
+
+	<% if @product.has_variants? %>
+	<!-- <div id="product-variants" class="columns five alpha">
+		<h6 class="product-section-title"><%= t(:variants) %></h6>
+		<ul>
+			<% has_checked = false
+			@product.variants.active.each_with_index do |v,index|
+				next if v.option_values.empty? || (!v.in_stock && !Spree::Config[:show_zero_stock_products])
+				checked = !has_checked && (v.in_stock || Spree::Config[:allow_backorders])
+				has_checked = true if checked %>
+				<li>
+					<%= radio_button_tag "products[#{@product.id}]", v.id, checked, :disabled => !v.in_stock && !Spree::Config[:allow_backorders] %>
+					<label for="<%= ['products', @product.id, v.id].join('_') %>">
+						<span class="variant-description">
+							<%= variant_options v %>
+						</span>
+						<% if variant_price_diff v %>
+						<span class="price diff"><%= variant_price_diff v %></span>
+						<% end %>
+					</label>
+				</li>
+				<% end%>
+			</ul> -->
+			<h6 class="product-section-title"><%= t(:variants) %></h6>
+			<%= select_tag "products[#{@product.id}]",options_for_select(@product.variants.active.collect{|u| [variant_options(u), u.id]}) %>
+		</div>
+		<% end%>
+
+		<% if @product.price %>
+		<div data-hook="product_price" class="to_center columns five <% if !@product.has_variants? %> alpha <% else %> omega <% end %>">
+
+			<div id="product-price">
+				<h6 class="product-section-title"><%# t(:price) %></h6>
+				<div><span class="price selling" itemprop="price"><%= number_to_currency @product.price %></span></div>
+			</div>
+			<br>
+			<div class="add-to-cart">
+				<% if @product.has_stock? || Spree::Config[:allow_backorders] %>      
+				<%= number_field_tag (@product.has_variants? ? :quantity : "variants[#{@product.master.id}]"),
+				1, :class => 'title span1', :in => 1..@product.on_hand %>
+				&nbsp;
+				<%= button_tag :class => 'btn-yellow ', :id => 'add-to-cart-button' do %>
+					<%= raw("<i class='icon-plus-sign icon-white'></i>") %>
+				<%= t(:add_to_cart) %>
+				<% end %>
+				<% else %>
+				<%= content_tag('strong', t(:out_of_stock)) %>
+				<% end %>
+			</div>
+
+		</div>
+		<% end %>    
+
+	</div>
+	<% end %>
